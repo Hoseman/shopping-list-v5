@@ -154,6 +154,8 @@ body {
     -webkit-appearance: none;
     border-radius: 0;
     border: 1px solid #444;
+    background: white;
+    display: block;
 }
 .input__small {
     margin-left: 0.5rem;
