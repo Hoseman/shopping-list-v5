@@ -86,6 +86,8 @@ const products = [
   { id: 79, productName: 'Walkers Spicy Prawn Crisps', price: 1.50 },
   { id: 80, productName: 'Wine - red/white', price: 5.50 },
   { id: 81, productName: 'Yoghurt Activia 2 large packs', price: 8.00 },
+  { id: 82, productName: 'Sweet Chilli Sauce', price: 1.80 },
+  { id: 83, productName: 'Nandos Lemon Marinade', price: 2.00 },
 ];
 
 function App() {
