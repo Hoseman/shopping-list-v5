@@ -4,13 +4,34 @@ import styles from '../style.module.css';
 class ProductList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+
+    const savedState = JSON.parse(localStorage.getItem('productListState')) || {
       selectedProduct: null,
       totalPrice: 0,
       selectedProductsList: [],
       isContentVisible: true,
     };
+    this.state = savedState;
+
+
+    // this.state = {
+    //   selectedProduct: null,
+    //   totalPrice: 0,
+    //   selectedProductsList: [],
+    //   isContentVisible: true,
+    // };
   }
+
+
+  saveStateToLocalStorage = () => {
+    localStorage.setItem('productListState', JSON.stringify(this.state));
+  };
+
+
+  componentDidUpdate() {
+    this.saveStateToLocalStorage();
+  }
+
 
   handleProductSelect = (event) => {
     const selectedProductId = parseInt(event.target.value);
@@ -95,7 +116,7 @@ class ProductList extends Component {
 
         <div
         className={`${styles.fixed_content} ${isContentVisible ? '' : styles.hidden}`}
-        onClick={(event) => event.stopPropagation()} // Stop event propagation for this div
+        onClick={(event) => event.stopPropagation()} 
       >
             <h2 className={styles.subheading}>Add and Remove Items with Prices</h2>
             <form className={styles.form__wrapper} onSubmit={this.handleFormSubmit}>

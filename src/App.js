@@ -3,6 +3,7 @@ import ProductList from './components/ProductList';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
+
 const products = [
   { id: 1, productName: 'Apples', price: 0.95 },
   { id: 2, productName: 'Apple Juice pack of 2', price: 1.78 },
