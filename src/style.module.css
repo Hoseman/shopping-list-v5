@@ -250,3 +250,11 @@ body {
     text-align: center;
     float: left;
 }
+.clearAllButton {
+    margin-bottom: 2.5rem;
+    background: black;
+    border: 0;
+    color: white;
+    padding: 0.4rem 1rem;
+    font-weight: bold;
+}

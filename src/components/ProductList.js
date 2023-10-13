@@ -113,6 +113,22 @@ class ProductList extends Component {
   };
 
 
+
+  handleClearAll = () => {
+    // Show a confirmation dialog
+    if (window.confirm('Are you sure you want to delete everything?')) {
+      // Clear all products and local storage
+      this.setState({
+        selectedProduct: null,
+        totalPrice: 0,
+        selectedProductsList: [],
+        isContentVisible: true,
+      });
+      localStorage.removeItem('productListState');
+    }
+  };
+
+
   render() {
     //const buttonClass = this.state.isActive ? 'inactive-button' : 'active-button';
     const { products } = this.props;
@@ -175,6 +191,12 @@ class ProductList extends Component {
 
         <div>
           <h2>Total Price: £{totalPrice.toFixed(2)}</h2>
+        </div>
+
+        <div>
+          <button className={styles.clearAllButton} onClick={this.handleClearAll}>
+            Clear All
+          </button>
         </div>
 
     </>
