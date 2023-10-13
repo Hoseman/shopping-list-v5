@@ -91,6 +91,9 @@ const products = [
   { id: 84, productName: 'Wine - red/white', price: 5.50 },
   { id: 85, productName: 'Yoghurt Activia 2 large packs', price: 8.00 },
   { id: 86, productName: 'Cheese/Onion Sandwich Filler', price: 1.85 },
+  { id: 87, productName: 'Gravy Granuals', price: 0.50 },
+  { id: 88, productName: 'Vinegar', price: 0.29 },
+  { id: 89, productName: 'Extra Virgin Olive Oil', price: 7.00 },
   
   
 ];
