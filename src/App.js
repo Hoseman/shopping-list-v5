@@ -90,6 +90,7 @@ const products = [
   { id: 83, productName: 'Walkers Spicy Prawn Crisps', price: 1.50 },
   { id: 84, productName: 'Wine - red/white', price: 5.50 },
   { id: 85, productName: 'Yoghurt Activia 2 large packs', price: 8.00 },
+  { id: 86, productName: 'Cheese/Onion Sandwich Filler', price: 8.00 },
   
   
 ];
