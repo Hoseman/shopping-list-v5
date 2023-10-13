@@ -89,6 +89,16 @@ body {
         width: 27px;
     } 
 }
+.icon {
+    width: 14px;
+    height: 18px;
+    cursor: pointer;
+}
+.icon_2 {
+    width: 17px;
+    height: 21px;
+    cursor: pointer;
+}
 .container {
     width: 950px;
     margin-left: auto;
@@ -161,10 +171,21 @@ body {
     margin-left: 0.5rem;
     -webkit-appearance: none;
     border-radius: 0;
-    border: 1px solid black;
-    background: black;
+    border: 0px solid black;
+    background: transparent;
     color: white;
     max-height: 23px;
+}
+.input__small_2 {
+    margin-left: 0.5rem;
+    -webkit-appearance: none;
+    border-radius: 0;
+    border: 0px solid black;
+    background: transparent;
+    color: white;
+    max-height: 23px;
+    margin-left: auto;
+    margin-right: 0;
 }
 .input__small:hover {
     background: white;
@@ -208,7 +229,7 @@ body {
     display: flex;
     justify-content:space-between;
     border-bottom: 1px solid #cccccc;
-    padding:0.3rem 0;
+    padding:0.4rem 0 0.2rem 0;
 }
 .item__name {
     margin-top: 3px;
@@ -221,7 +242,7 @@ body {
     color: #ffffff;
     border-radius: 1rem;
     padding: 0.25rem 0 0.15rem 0;
-    margin: 0 0.5rem 0 0;
+    margin: -2px 0.5rem 0 0;
     font-size:0.75rem;
     font-weight: bold;
     width: 18px;

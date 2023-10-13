@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import styles from '../style.module.css';
+import iconTrash from '../trash-solid.svg';
+import iconEye from '../eye-solid.svg';
+import iconDisableEye from '../eye-slash-solid.svg';
+import './productlist.css';
 
 class ProductList extends Component {
   constructor(props) {
@@ -13,13 +17,6 @@ class ProductList extends Component {
     };
     this.state = savedState;
 
-
-    // this.state = {
-    //   selectedProduct: null,
-    //   totalPrice: 0,
-    //   selectedProductsList: [],
-    //   isContentVisible: true,
-    // };
   }
 
 
@@ -49,7 +46,16 @@ class ProductList extends Component {
     const { selectedProduct, selectedProductsList } = this.state;
 
     if (selectedProduct) {
-      selectedProductsList.push(selectedProduct);
+
+      const updatedProduct = {
+        ...selectedProduct,
+        selectedClass: '', // Initialize a property to track the CSS class
+        icon: iconEye, // Set the initial icon to iconEye
+      };
+
+      selectedProductsList.push(updatedProduct);
+      //selectedProduct.selectedClass = ''; // Initialize a property to track the CSS class
+
       const totalPrice = selectedProductsList.reduce(
         (total, product) => total + product.price,
         0
@@ -83,10 +89,6 @@ class ProductList extends Component {
 
 
 
-
-
-
-
   handleToggle = (event) => {
     event.stopPropagation();
     this.setState((prevState) => ({
@@ -96,9 +98,23 @@ class ProductList extends Component {
 
 
 
+  toggleClass = (index) => {
+    const { selectedProductsList } = this.state;
+  
+    // Toggle the CSS class on the selected item
+    selectedProductsList[index].selectedClass = selectedProductsList[index].selectedClass === 'inactive-button' ? 'active-button' : 'inactive-button';
+  
+    // Toggle the icon based on the selectedClass
+    selectedProductsList[index].icon = selectedProductsList[index].selectedClass === 'inactive-button' ? iconDisableEye : iconEye;
+  
+    this.setState({
+      selectedProductsList,
+    });
+  };
 
 
   render() {
+    //const buttonClass = this.state.isActive ? 'inactive-button' : 'active-button';
     const { products } = this.props;
     const {
       selectedProductsList,
@@ -136,14 +152,25 @@ class ProductList extends Component {
 
         <div>
           <h2>Added Items({ selectedProductsList.length }):</h2>
-          <ul className={styles.added}>
-            {selectedProductsList.map((product, index) => (
-              <li key={product.id}>
-                <span className={styles.item__name}><span className={styles.count}>{ index + 1 }</span>{product.productName} - £{product.price.toFixed(2)}</span>
-                <button className={styles.input__small} onClick={() => this.handleDeleteItem(index)} >Delete</button>
+          <ul id="mylist" className={styles.added}>
+
+          {selectedProductsList.map((product, index) => (
+              <li className={product.selectedClass || ''} key={product.id}>
+                <span className={styles.item__name}>
+                  <span className={styles.count}>{index + 1}</span>
+                  {product.productName} - £{product.price.toFixed(2)}
+                </span>
+                <button onClick={() => this.toggleClass(index)} className={styles.input__small_2}>
+                  <img alt="eye" className={styles.icon_2} src={product.icon} /> {/* Add src attribute here */}
+                </button>
+                <button className={styles.input__small} onClick={() => this.handleDeleteItem(index)}>
+                  <img alt="trash" className={styles.icon} src={iconTrash} />
+                </button>
               </li>
             ))}
-          </ul>
+
+
+        </ul>
         </div>
 
         <div>
